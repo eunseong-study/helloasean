@@ -22,7 +22,9 @@ public class Board {
     private String content;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
     private Role role;
 
+    @Column(nullable = true)
     private List<Blob> files;
 }
