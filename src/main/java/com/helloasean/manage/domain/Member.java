@@ -1,9 +1,6 @@
 package com.helloasean.manage.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Member {
@@ -18,5 +15,6 @@ public class Member {
 
     private String password;
 
+    @Enumerated(EnumType.STRING)
     private Role role;
 }
