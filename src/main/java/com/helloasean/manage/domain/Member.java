@@ -1,8 +1,11 @@
 package com.helloasean.manage.domain;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
 public class Member {
     @Id @GeneratedValue
     @Column(name = "member_id")
