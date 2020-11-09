@@ -1,5 +1,6 @@
 package com.helloasean.manage.controller;
 
+import com.helloasean.manage.domain.dto.BoardDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
