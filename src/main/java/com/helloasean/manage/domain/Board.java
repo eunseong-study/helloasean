@@ -3,7 +3,6 @@ package com.helloasean.manage.domain;
 import lombok.Getter;
 
 import javax.persistence.*;
-import java.sql.Blob;
 import java.util.List;
 
 @Entity
@@ -25,6 +24,6 @@ public class Board {
     @Column(nullable = true)
     private Role role;
 
-    @Column(nullable = true)
-    private List<Blob> files;
+    @OneToMany
+    private List<File> files;
 }
