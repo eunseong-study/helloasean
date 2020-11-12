@@ -24,6 +24,6 @@ public class Board {
     @Column(nullable = true)
     private Role role;
 
-    @OneToMany
+    @OneToMany(mappedBy = "board")
     private List<File> files;
 }
