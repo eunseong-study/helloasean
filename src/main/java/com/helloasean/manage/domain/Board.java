@@ -16,6 +16,8 @@ public class Board {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    private int board_type;
+
     private String subject;
 
     private String content;
