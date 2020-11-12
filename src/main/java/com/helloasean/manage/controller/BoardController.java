@@ -13,8 +13,9 @@ import javax.validation.Valid;
 public class BoardController {
 
     @GetMapping("/main")
-    public String main(@RequestParam int page, @RequestParam int board_type) {
+    public String main(@RequestParam int page, @RequestParam int board_type, Model model) {
 
+        model.addAttribute("board_type", board_type);
         return "board/board_main";
     }
 
