@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="fragments/header :: header"></head>
+<body id="page-top">
+
+<div id="wrapper">
+
+    <ul th:replace="fragments/sidebar :: sidebar"></ul>
+
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav th:replace="fragments/nav :: nav"></nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <!-- 내용 작성-->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+
+        <!-- Footer -->
+        <footer th:replace="fragments/footer :: footer"></footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- Logout Modal-->
+<div th:replace="fragments/logout :: logout"></div>
+
+<div th:replace="fragments/script :: script"></div>
+
+</body>
+
+</html>
