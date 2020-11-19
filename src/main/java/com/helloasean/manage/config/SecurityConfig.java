@@ -1,5 +1,6 @@
 package com.helloasean.manage.config;
 
+import com.helloasean.manage.domain.Role;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.reactive.result.view.CsrfRequestDataValueProcessor;
 
 @Configuration
 @EnableWebSecurity
@@ -23,18 +25,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .anyRequest().permitAll()
-//                .antMatchers("/user/login").permitAll()
-//                .antMatchers("/").hasRole("MEMBER")
-//            .and()
-//            .formLogin()
-//                .loginPage("/user/login")
-//            .and()
-//            .logout()
-//                .logoutUrl("/user/logout")
-//                .logoutSuccessUrl("/user/login")
-//            .and()
-//            .exceptionHandling().accessDeniedPage("/user/login")
+                .antMatchers("/user/login").permitAll()
+                .antMatchers("/").hasRole("MEMBER")
+            .and()
+            .formLogin()
+                .loginPage("/user/login")
+                .successHandler(new MyLoginSuccessHandler())
+            .and()
+            .logout()
+                .logoutUrl("/user/logout")
+                .logoutSuccessUrl("/user/login")
+            .and()
+            .exceptionHandling().accessDeniedPage("/user/login")
         ;
     }
 
