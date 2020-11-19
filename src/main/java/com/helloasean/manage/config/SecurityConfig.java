@@ -21,8 +21,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .anyRequest().permitAll()
+        http
+            .authorizeRequests()
+                .antMatchers("/user/login").permitAll()
+                .antMatchers("/").hasRole("MEMBER")
             .and()
             .formLogin()
                 .loginPage("/user/login")
@@ -30,6 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .logout()
                 .logoutUrl("/user/logout")
                 .logoutSuccessUrl("/user/login")
+            .and()
+            .exceptionHandling().accessDeniedPage("/user/login")
         ;
     }
 

@@ -1,5 +1,6 @@
 package com.helloasean.manage.domain;
 
+import com.helloasean.manage.domain.dto.MemberDto;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -20,4 +21,11 @@ public class Member {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    public void toEntity(MemberDto memberDto) {
+        this.email = memberDto.getEmail();
+        this.username = memberDto.getUsername();
+        this.password = memberDto.getPassword();
+        this.role = Role.ROLE_MEMBER;
+    }
 }
